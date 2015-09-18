@@ -388,7 +388,7 @@ static CGFloat const kLGActionSheetButtonHeight         = 44.f;
 
 - (void)setupDefaults
 {
-    _transitionStyle = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? LGActionSheetTransitionStyleBottom : LGActionSheetTransitionStyleCenter);
+//    _transitionStyle = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? LGActionSheetTransitionStyleBottom : LGActionSheetTransitionStyleCenter);
     
     _cancelOnTouch = YES;
     
@@ -464,7 +464,10 @@ static CGFloat const kLGActionSheetButtonHeight         = 44.f;
     
     _viewController = [[LGActionSheetViewController alloc] initWithActionSheet:self];
     
-    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    CGRect windowBounds = [[[UIWindow alloc]init]bounds];
+    _window = [[UIWindow alloc] initWithFrame:windowBounds];
+    
+//    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _window.hidden = YES;
     _window.windowLevel = UIWindowLevelStatusBar+1;
     _window.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
